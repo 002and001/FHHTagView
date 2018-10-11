@@ -24,21 +24,6 @@
     return self;
 }
 
-- (nonnull instancetype)initWithTitle:(nonnull NSString *)title
-               normalStateButtonBlcok:(nonnull NormalStateButtonBlcok)normalStateButtonBlcok
-             selectedStateButtonBlcok:(nonnull SelectedStateButtonBlcok)selectedStateButtonBlcok {
-    if (self = [super init]) {
-        NSParameterAssert(![title isEqualToString:@""] && title != nil);
-        NSParameterAssert(normalStateButtonBlcok != nil);
-        NSParameterAssert(selectedStateButtonBlcok != nil);
-        _title = title;
-        [self p_configOwnProperties];
-        _normalStateButtonBlock = normalStateButtonBlcok;
-        _selectedStateButtonBlcok = selectedStateButtonBlcok;
-    }
-    return self;
-}
-
 - (void)p_configOwnProperties {
     _borderColor = [UIColor blackColor];
     _titleColor = [UIColor blackColor];

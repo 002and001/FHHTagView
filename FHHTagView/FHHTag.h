@@ -44,11 +44,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (nonnull instancetype)initWithTitle:(nonnull NSString *)title;
 
-//- (nonnull instancetype)initWithTitle:(nonnull NSString *)title
-//               normalStateButtonBlcok:(nonnull NormalStateButtonBlcok)normalStateButtonBlcok
-//               selectedStateButtonBlcok:(nonnull SelectedStateButtonBlcok)selectedStateButtonBlcok;
-
-
 @end
 
 NS_ASSUME_NONNULL_END

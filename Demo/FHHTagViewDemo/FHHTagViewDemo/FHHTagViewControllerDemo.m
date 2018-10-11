@@ -80,7 +80,7 @@
     FHHTagViewLayout *layout = [[FHHTagViewLayout alloc] init];
     _tagViewLayout = layout;
     FHHTagView *tagView = [[FHHTagView alloc] init];
-        tagView.selectionStyle = FHHTagViewSelectionStyleSingle;
+    tagView.selectionStyle = FHHTagViewSelectionStyleSingle;
 //    tagView.selectionStyle = FHHTagViewSelectionStyleMutiple;
 //    tagView.selectionStyle = FHHTagViewSelectionStyleNone;
     
@@ -93,9 +93,9 @@
     [tagView refreshWithTagArray:tagArrayM layout:layout];
     [self.view addSubview:tagView];
     _tagView = tagView;
-    CGFloat tagH = [tagView heightForTagView];
-    CGFloat height = [FHHTagView heightForTagViewWithTagArray:tagArrayM layout:layout];
-    NSLog(@"tagH:%lf,height:%lf",tagH,height);
+//    CGFloat tagH = [tagView heightForTagView];
+//    CGFloat height = [FHHTagView heightForTagViewWithTagArray:tagArrayM layout:layout];
+//    NSLog(@"tagH:%lf,height:%lf",tagH,height);
 }
 
 - (void)p_configBtnAdd {

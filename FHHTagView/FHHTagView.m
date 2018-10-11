@@ -43,6 +43,9 @@
         }
     }
     FHHTagButton *insertedButton = [[FHHTagButton alloc] initWithTag:tag maxWidth:_layout.width];
+    if (tag.enable) {
+        [insertedButton addTarget:self action:@selector(p_buttonDidClick:) forControlEvents:UIControlEventTouchUpInside];
+    }
     [self addSubview:insertedButton];
     [_tagArray addObject:tag];
     [_buttonArray addObject:insertedButton];
@@ -58,6 +61,9 @@
         return;
     }
     FHHTagButton *insertedButton = [[FHHTagButton alloc] initWithTag:tag maxWidth:_layout.width];
+    if (tag.enable) {
+        [insertedButton addTarget:self action:@selector(p_buttonDidClick:) forControlEvents:UIControlEventTouchUpInside];
+    }
     [self addSubview:insertedButton];
     if (tag.normalStateButtonBlock != nil) {
         tag.normalStateButtonBlock(insertedButton);
@@ -95,7 +101,7 @@
             [view removeFromSuperview];
             [_tagArray removeObjectAtIndex:index];
             [_buttonArray removeObjectAtIndex:index];
-            NSLog(@"delete view:%@",view);
+//            NSLog(@"delete view:%@",view);
             break;
         }
     }
@@ -223,7 +229,7 @@
         button.fhh_bottom = self.lastLayoutButton.fhh_bottom;
         button.fhh_x = self.lastLayoutButton.fhh_right + _layout.innerItemSpacing;
     }
-    NSLog(@"button:%@",button);
+//    NSLog(@"button:%@",button);
 }
 
 #pragma mark - HandleEvents

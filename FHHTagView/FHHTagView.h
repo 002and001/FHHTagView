@@ -26,13 +26,49 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, readonly) NSMutableArray *tagArray;
 @property (nonatomic, strong, readonly) NSMutableArray *selectedTagArray;
 
+/**
+ refresh the view with tag and layout.
+
+ @param tagArray the tagArray mapping to the tagButtonArray shown in the view
+ @param layout The layout you specified to configure tagView layout's style
+ */
 - (void)refreshWithTagArray:(nonnull NSArray *)tagArray layout:(nonnull FHHTagViewLayout *)layout;
 
+/**
+ Inserts a given tag at the end of the array.
+
+ @param tag The tag to add to the end of the tagArray’s content. This value must not be nil.
+ */
 - (void)addTag:(nonnull FHHTag *)tag;
+
+/**
+
+ Inserts a given tag into the tagArray’s contents at a given index.
+
+ @param tag The tag to add to the tagArray's content. This value must not be nil.
+ @param index The index in the tagArray at which to insert anObject. This value must not be greater than the count of elements in the array.
+ */
 - (void)insertTag:(nonnull FHHTag *)tag atIndex:(NSUInteger)index;
+
+/**
+ Removes all occurrences in the tagArray of a given tag.
+ 
+ @param tag The tag to remove from the tagArray.
+ */
 - (void)removeTag:(nonnull FHHTag *)tag;
+
+/**
+ Removes the tag at index
+
+ @param index The index from which to remove the tag in the tagArray. The value must not exceed the bounds of the array.
+ */
 - (void)removeTagAtIndex:(NSUInteger)index;
+
+/**
+ Removes all occurrences tag in the tagArray.
+ */
 - (void)removeAllTags;
+
 
 - (CGFloat)heightForTagView;
 + (CGFloat)heightForTagViewWithTagArray:(nonnull NSArray *)tagArray layout:(nonnull FHHTagViewLayout *)layout;
