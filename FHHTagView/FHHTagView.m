@@ -26,10 +26,6 @@
     return size;
 }
 
-- (void)dealloc {
-    NSLog(@"FHHTagView - delloc");
-}
-
 - (void)refreshWithTagArray:(NSArray *)tagArray layout:(nonnull FHHTagViewLayout *)layout {
     _lastLayoutButton = nil;
     self.fhh_width = layout.width;

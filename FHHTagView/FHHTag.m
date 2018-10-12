@@ -32,9 +32,4 @@
     _fontSize = 15;
 }
 
-- (void)dealloc {
-    NSLog(@"FHHTag - delloc");
-}
-
-
 @end

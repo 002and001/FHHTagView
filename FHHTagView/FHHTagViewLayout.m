@@ -20,8 +20,4 @@
     return self;
 }
 
-- (void)dealloc {
-    NSLog(@"FHHTagViewLayout - delloc");
-}
-
 @end

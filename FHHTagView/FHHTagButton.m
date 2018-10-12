@@ -30,10 +30,6 @@
     return self;
 }
 
-- (void)dealloc {
-    NSLog(@"FHHTagButton - delloc");
-}
-
 #pragma mark - Functions
 + (CGSize)sizeWithTag:(FHHTag *)tag maxWidth:(CGFloat)maxWidth {
     CGSize titleSize = [NSString sizeForString:tag.title fontSize:tag.fontSize maxSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)];
