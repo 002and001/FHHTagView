@@ -21,17 +21,25 @@
 
 @implementation FHHTagView
 
+- (CGSize)intrinsicContentSize {
+    CGSize size = CGSizeMake(_layout.width, _lastLayoutButton.fhh_bottom + _layout.padding.bottom);
+    return size;
+}
+
 - (void)dealloc {
     NSLog(@"FHHTagView - delloc");
 }
 
 - (void)refreshWithTagArray:(NSArray *)tagArray layout:(nonnull FHHTagViewLayout *)layout {
+    _lastLayoutButton = nil;
     self.fhh_width = layout.width;
     _layout = layout;
     _tagArray = [NSMutableArray arrayWithArray:tagArray];
     _buttonArray = [NSMutableArray arrayWithCapacity:tagArray.count];
     _selectedButtonArray = [NSMutableArray arrayWithCapacity:tagArray.count];
     [self p_layoutButtonsWithTagArray:_tagArray];
+    self.fhh_height = _lastLayoutButton.fhh_bottom + _layout.padding.bottom;
+    [self invalidateIntrinsicContentSize];
 }
 
 - (void)addTag:(nonnull FHHTag *)tag {
@@ -101,7 +109,7 @@
             [view removeFromSuperview];
             [_tagArray removeObjectAtIndex:index];
             [_buttonArray removeObjectAtIndex:index];
-//            NSLog(@"delete view:%@",view);
+            //            NSLog(@"delete view:%@",view);
             break;
         }
     }
@@ -138,6 +146,7 @@
 }
 
 - (void)removeAllTags {
+    _lastLayoutButton = nil;
     for (UIView *view in self.subviews) {
         if ([view isKindOfClass:[FHHTagButton class]]) {
             [view removeFromSuperview];
@@ -175,7 +184,7 @@
                 currentButtonBottom = lastButtonBottom;
             }
         }
-//        NSLog(@"currentButtonRight:%lf,currentButtonBottom:%lf",currentButtonRight, currentButtonBottom);
+        //        NSLog(@"currentButtonRight:%lf,currentButtonBottom:%lf",currentButtonRight, currentButtonBottom);
         lastButtonBottom = currentButtonBottom;
         lastButtonRight = currentButtonRight;
     }
@@ -200,7 +209,7 @@
             [button addTarget:self action:@selector(p_buttonDidClick:) forControlEvents:UIControlEventTouchUpInside];
         }
         [self addSubview:button];
-    
+        
         if (_lastLayoutButton == nil) {
             button.fhh_x = _layout.padding.left;
             button.fhh_y = _layout.padding.top;
@@ -217,7 +226,6 @@
             tag.normalStateButtonBlock(button);
         }
     }
-    self.fhh_height = _lastLayoutButton.fhh_bottom + _layout.padding.bottom;
 }
 
 - (void)p_reLayoutButtonIfNeeded:(FHHTagButton *)button  {
@@ -229,7 +237,7 @@
         button.fhh_bottom = self.lastLayoutButton.fhh_bottom;
         button.fhh_x = self.lastLayoutButton.fhh_right + _layout.innerItemSpacing;
     }
-//    NSLog(@"button:%@",button);
+    //    NSLog(@"button:%@",button);
 }
 
 #pragma mark - HandleEvents
