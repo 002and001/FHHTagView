@@ -1,11 +1,50 @@
-#FHHTagView
-[Github](https://github.com/002and001/FHHTagView)
+# FHHTagView
+[![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/jvjishou/FHHFPSIndicator/master/LICENSE)&nbsp;
+[![CocoaPods](http://img.shields.io/cocoapods/v/FHHFPSIndicator.svg?style=flat)](http://cocoapods.org/?q=FHHFPSIndicator)&nbsp;
+[![CocoaPods](http://img.shields.io/cocoapods/p/FHHFPSIndicator.svg?style=flat)](http://cocoapods.org/?q=FHHFPSIndicator)&nbsp;
+
+Installation
+==============
+### CocoaPods
+
+1. Add `pod "FHHTagView"` to your Podfile.
+2. Run `pod install` or `pod update`.
+3. Import \<FHHTagView/FHHTagView.h\>.
+
+### Manually
+1. Drag all source files under floder `FHHTagView` to your project
+2. Import the main header file：`#import "FHHTagView.h"`
+
 ### Tip：
-* 提供高度计算Api
-* 自定义标签样式
-* 可设置标签控件是否支持单选、多选、不可选三种方式
-* 标签点击选择后可执行block回调
-* 支持标签的add、insert、remove操作
+* support apis of Height cacluation
+* custom tag style
+* support tagView selection style
+* support the block while the Tag is selected
+* offer add、insert、remove operations
+
+
+### Introduction
+#### How to use
+  * initialize an array and add tag to the array like :
+  ```
+NSMuatbleArray<FHHTag *> *tagArray = [[NSMuatbleArray<FHHTag *> alloc] init];
+FHHTag *tag = [[FHHTag alloc] initWithTitle:@"Big Hero 6"];
+[tagArray addObject:tag];
+  ```
+  * initialize a layout like :
+  ```
+FHHTagViewLayout *layout = [[FHHTagViewLayout alloc] init];
+layout.width = 300;
+layout.lineSpacing = 5.0;
+layout.innerItemSpacing = 4.0;
+  ```
+  * initialize a tagView,then call the func **refreshWithTagArray:**,like:
+  ```
+FHHTagView *tagView = [[FHHTagView alloc] init];
+[tagView refreshWithTagArray:tagArray layout:layout];
+  ```
+
+
 ### Demo：
 ---
 ![FHHtagViewGif.gif](https://upload-images.jianshu.io/upload_images/2351207-3895eb096d3791e7.gif?imageMogr2/auto-orient/strip)
@@ -64,11 +103,3 @@
     return tag;
 }
 ```
-
-### Introduction
-#### How to use
-  * 创建一个NSArray<FHHTag *>类型的数组tagArray
-  * 创建一个FHHTagViewLayout对象tagLayout，需设置tagLayout的Width，用于指定FHHTagView的宽度
-  * 创建一个FHHTagView对象tagView,调用[tagView refreshWithTagArray:tagArray layout:layout]刷新视图即可
-
-示例Demo请参考[Github](https://github.com/002and001/FHHTagView)
