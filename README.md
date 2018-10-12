@@ -1,7 +1,7 @@
 # FHHTagView
-[![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/jvjishou/FHHFPSIndicator/master/LICENSE)&nbsp;
-[![CocoaPods](http://img.shields.io/cocoapods/v/FHHFPSIndicator.svg?style=flat)](http://cocoapods.org/?q=FHHFPSIndicator)&nbsp;
-[![CocoaPods](http://img.shields.io/cocoapods/p/FHHFPSIndicator.svg?style=flat)](http://cocoapods.org/?q=FHHFPSIndicator)&nbsp;
+[![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/002and001/FHHTagView/master/LICENSE)&nbsp;
+[![CocoaPods](http://img.shields.io/cocoapods/v/FHHTagView.svg?style=flat)](http://cocoapods.org/?q=FHHTagView)&nbsp;
+[![CocoaPods](http://img.shields.io/cocoapods/p/FHHTagView.svg?style=flat)](http://cocoapods.org/?q=FHHTagView)&nbsp;
 
 Installation
 ==============
