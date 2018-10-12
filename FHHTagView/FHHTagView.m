@@ -54,9 +54,7 @@
     [_tagArray addObject:tag];
     [_buttonArray addObject:insertedButton];
     [self p_reLayoutButtonsFromBeginIndex:_tagArray.count - 1];
-    if (self.fhh_height != _lastLayoutButton.fhh_bottom + _layout.padding.bottom) {
-        self.fhh_height = _lastLayoutButton.fhh_bottom + _layout.padding.bottom;
-    }
+    [self p_updateSelfSize];
 }
 
 - (void)insertTag:(nonnull FHHTag *)tag atIndex:(NSUInteger)index {
@@ -81,9 +79,7 @@
         _lastLayoutButton = nil;
     }
     [self p_reLayoutButtonsFromBeginIndex:index];
-    if (self.fhh_height != _lastLayoutButton.fhh_bottom + _layout.padding.bottom) {
-        self.fhh_height = _lastLayoutButton.fhh_bottom + _layout.padding.bottom;
-    }
+    [self p_updateSelfSize];
 }
 
 - (void)removeTag:(nonnull FHHTag *)tag {
@@ -105,7 +101,6 @@
             [view removeFromSuperview];
             [_tagArray removeObjectAtIndex:index];
             [_buttonArray removeObjectAtIndex:index];
-            //            NSLog(@"delete view:%@",view);
             break;
         }
     }
@@ -120,9 +115,14 @@
         _lastLayoutButton = nil;
     }
     [self p_reLayoutButtonsFromBeginIndex:index];
+    [self p_updateSelfSize];
+}
+
+- (void)p_updateSelfSize {
     if (self.fhh_height != _lastLayoutButton.fhh_bottom + _layout.padding.bottom) {
         self.fhh_height = _lastLayoutButton.fhh_bottom + _layout.padding.bottom;
     }
+    [self invalidateIntrinsicContentSize];
 }
 
 - (void)p_reLayoutButtonsFromBeginIndex:(NSInteger)index {
@@ -180,7 +180,6 @@
                 currentButtonBottom = lastButtonBottom;
             }
         }
-        //        NSLog(@"currentButtonRight:%lf,currentButtonBottom:%lf",currentButtonRight, currentButtonBottom);
         lastButtonBottom = currentButtonBottom;
         lastButtonRight = currentButtonRight;
     }
@@ -233,7 +232,6 @@
         button.fhh_bottom = self.lastLayoutButton.fhh_bottom;
         button.fhh_x = self.lastLayoutButton.fhh_right + _layout.innerItemSpacing;
     }
-    //    NSLog(@"button:%@",button);
 }
 
 #pragma mark - HandleEvents
@@ -267,7 +265,6 @@
             [_selectedButtonArray addObject:button];
         }
     }
-    [self selectedTagArray];
 }
 
 #pragma mark - Setter

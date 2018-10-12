@@ -88,11 +88,11 @@
     layout.lineSpacing = 10.0;
     layout.innerItemSpacing = 10.0;
     //    tagView.padding = UIEdgeInsetsMake(10, 5, 20, 0);
-    tagView.fhh_x = 10;
-    tagView.fhh_y = 50;
     [tagView refreshWithTagArray:tagArrayM layout:layout];
     [self.view addSubview:tagView];
     _tagView = tagView;
+    _tagView.fhh_x = 10;
+    _tagView.fhh_y = 50;
 //    CGFloat tagH = [tagView heightForTagView];
 //    CGFloat height = [FHHTagView heightForTagViewWithTagArray:tagArrayM layout:layout];
 //    NSLog(@"tagH:%lf,height:%lf",tagH,height);
