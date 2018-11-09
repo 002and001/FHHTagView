@@ -213,7 +213,6 @@
     }
     lastButtonWidth = width;
     NSString *tagRectStr = NSStringFromCGRect(CGRectMake(x, y, width, height));
-    NSLog(@"tagRectStr:%@",tagRectStr);
     [tagRectStrArrayM addObject:tagRectStr];
   }
   return [tagRectStrArrayM copy];
@@ -253,10 +252,10 @@
     FHHTag *tag = tagArray[i];
     CGRect tagButtonFrame = CGRectFromString(tagRectStrArray[i]);
     FHHTagButton *button = _buttonArray[i];
-    button.hidden  = false;
     [self addSubview:button];
-    [_buttonArray addObject:button];
+    button.hidden  = false;
     button.frame = tagButtonFrame;
+    [button refreshWithTag:tag];
     if (tag.enable) {
       [button addTarget:self action:@selector(p_buttonDidClick:) forControlEvents:UIControlEventTouchUpInside];
     }

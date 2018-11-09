@@ -41,6 +41,12 @@
 }
 
 #pragma mark - Functions
+- (void)refreshWithTag:(FHHTag *)tag {
+  _fhhTag = tag;
+  self.userInteractionEnabled = tag.enable;
+  [self p_configUIWithTag:tag];
+}
+
 - (void)refreshWithTag:(FHHTag *)tag maxWidth:(CGFloat)maxWidth {
   _fhhTag = tag;
   _maxWidth = maxWidth;
