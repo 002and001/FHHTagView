@@ -80,8 +80,8 @@
     FHHTagViewLayout *layout = [[FHHTagViewLayout alloc] init];
     _tagViewLayout = layout;
     FHHTagView *tagView = [[FHHTagView alloc] init];
-    tagView.selectionStyle = FHHTagViewSelectionStyleSingle;
-//    tagView.selectionStyle = FHHTagViewSelectionStyleMutiple;
+//    tagView.selectionStyle = FHHTagViewSelectionStyleSingle;
+    tagView.selectionStyle = FHHTagViewSelectionStyleMutiple;
 //    tagView.selectionStyle = FHHTagViewSelectionStyleNone;
     
     layout.width = 300;
@@ -89,6 +89,10 @@
     layout.innerItemSpacing = 10.0;
     //    tagView.padding = UIEdgeInsetsMake(10, 5, 20, 0);
     [tagView refreshWithTagArray:tagArrayM layout:layout];
+    
+//    NSArray *tagRectArray = [FHHTagView tagRectArrayWithTagArray:tagArrayM layout:layout];
+//    [tagView refreshWithTagArray:tagArrayM tagRectStrArray:tagRectArray layout:layout];
+    
     [self.view addSubview:tagView];
     _tagView = tagView;
     _tagView.fhh_x = 10;

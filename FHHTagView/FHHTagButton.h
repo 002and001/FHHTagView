@@ -15,8 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) FHHTag *fhhTag;
 
+- (instancetype)initWithTag:(FHHTag *)tag;
 - (instancetype)initWithTag:(FHHTag *)tag maxWidth:(CGFloat)maxWidth;
-
+- (void)refreshWithTag:(FHHTag *)tag maxWidth:(CGFloat)maxWidth;
 + (CGSize)sizeWithTag:(FHHTag *)tag maxWidth:(CGFloat)maxWidth;
 
 @end
